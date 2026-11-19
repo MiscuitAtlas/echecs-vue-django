@@ -25,6 +25,7 @@ watch(
     await nextTick()
     if (scroller.value) scroller.value.scrollTop = scroller.value.scrollHeight
   },
+  { immediate: true },
 )
 </script>
 

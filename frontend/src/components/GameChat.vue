@@ -19,6 +19,7 @@ watch(
     await nextTick()
     if (list.value) list.value.scrollTop = list.value.scrollHeight
   },
+  { immediate: true },
 )
 
 async function submit() {
