@@ -1,0 +1,13 @@
+# Démo en ligne sur Render : https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: echecs-vue-django
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    autoDeploy: true
+    healthCheckPath: /api/session
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true

@@ -1,0 +1,256 @@
+/* Roque : thème ardoise, accent laiton (comme le bouton d'une pendule d'échecs). */
+
+:root {
+  --bg: #172129;
+  --panel: #1f2c35;
+  --panel-2: #273741;
+  --line: #36495a;
+  --text: #eaf0f3;
+  --muted: #a3b4bf;
+  --brass: #e8b75a;
+  --brass-strong: #f2c873;
+  --brass-ink: #1d1505;
+  --danger: #f39580;
+  --ok: #86d6ae;
+  --square-light: #e9dfc8;
+  --square-dark: #6f8f8a;
+  --display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --body: "Atkinson Hyperlegible Next", "Segoe UI", system-ui, sans-serif;
+  --radius: 10px;
+  --radius-small: 6px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--display);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--brass-strong);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brass-strong);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(1180px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.page {
+  padding-block: 2rem 4rem;
+}
+
+.narrow {
+  width: min(460px, 100% - 2rem);
+}
+
+.lead {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.panel {
+  padding: 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Formulaires */
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.92rem;
+}
+
+.help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Boutons */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--brass);
+  border-radius: var(--radius-small);
+  background: var(--brass);
+  color: var(--brass-ink);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--brass-strong);
+  color: var(--brass-ink);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.button.secondary:hover {
+  border-color: var(--brass);
+  color: #fff;
+}
+
+.button.danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 50%, transparent);
+}
+
+.button.danger:hover {
+  border-color: var(--danger);
+}
+
+.button.wide {
+  width: 100%;
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--brass-strong);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+/* Messages */
+
+.notice {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--brass);
+  border-radius: var(--radius-small);
+  background: var(--panel-2);
+}
+
+.notice.error {
+  border-left-color: var(--danger);
+}
+
+.notice.success {
+  border-left-color: var(--ok);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
